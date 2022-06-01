@@ -1,7 +1,10 @@
+# Smartitory Component Exmaples
 ## Getting Started
-
-First, run the development server:
-
+Installing the app:
+```bash
+yarn install
+```
+Run the development server:
 ```bash
 yarn dev
 ```
