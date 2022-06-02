@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {Box, Button, Typography} from '@mui/material';
 import TimetableComponent from 'components/Timetable/Timetable';
-import CompactItem from 'components/Timetable/CompactItem';
+import CompactItem from 'components/Timetable/TableItems/CompactItem';
 import { ReactComponent as PrevSm } from 'assets/images/prev-arrow-sm.svg';
 import { ReactComponent as NextSm } from 'assets/images/next-arrow-sm.svg';
 import palette from 'theme/palette';
