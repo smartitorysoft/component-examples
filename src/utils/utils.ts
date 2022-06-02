@@ -1,8 +1,14 @@
 import {IReservation} from 'data/dummy-timetable-data';
 import {IDay} from 'components/Timetable/Timetable';
 
+const locale = 'hu-HU';
+
 export const px = (s: number | string) => `${s}px`;
 export const wz = (k: number): string => `${k < 10 ? 0 : ''}${k}`;
+
+export const getMonthName = (date: Date, short = false) => date.toLocaleString(locale, { month: short ? 'short' : 'long' });
+
+export const displayMonth = (d = new Date()) => `${d.getFullYear()}. ${getMonthName(d)}`;
 
 export const onlyDate = (d: Date, addition = 0): Date => new Date(d.getFullYear(), d.getMonth(), d.getDate() + addition);
 

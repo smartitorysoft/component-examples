@@ -5,6 +5,7 @@ import CompactItem from 'components/Timetable/CompactItem';
 import { ReactComponent as PrevSm } from 'assets/images/prev-arrow-sm.svg';
 import { ReactComponent as NextSm } from 'assets/images/next-arrow-sm.svg';
 import palette from 'theme/palette';
+import { displayMonth } from 'utils/utils';
 
 const sx = {
 	root: {
@@ -16,7 +17,19 @@ const sx = {
 		maxWidth: '1400px',
 		mx: 'auto',
 	},
-	leftControl: {
+	control: {
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		columnGap: '8px',
+	},
+	title: {
+		fontFamily: 'clash-700',
+		fontSize: '18px',
+		color: 'text.primaryDarkest',
+	},
+	rightControl: {
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -26,6 +39,14 @@ const sx = {
 	stepBtn: {
 		px: '12px',
 		fontWeight: 700,
+	},
+	date: {
+		fontWeight: 700,
+		fontSize: '14px',
+		color: 'text.primaryDarkest',
+		minWidth: '124px',
+		textAlign: 'center',
+		lineHeight: '14px',
 	},
 };
 
@@ -76,26 +97,29 @@ const Timetable = () => {
 	return (
 		<Box sx={sx.root}>
 			<Box sx={sx.content}>
-				<Box sx={sx.leftControl}>
-					<Button
-						variant='text'
-						color={BTN_COLOR}
-						sx={sx.stepBtn}
-						startIcon={<PrevSm />}
-						onClick={handlePrev}
-					>
-						Előző
-					</Button>
-					<Button
-						variant='text'
-						color={BTN_COLOR}
-						sx={sx.stepBtn}
-						endIcon={<NextSm color={palette.text.primaryDark} />}
-						onClick={handleNext}
-					>
-						Következő
-					</Button>
-					{anchorDate &&	<Typography>{anchorDate.toString()}</Typography>}
+				<Box sx={sx.control}>
+					<Typography sx={sx.title}>Renting</Typography>
+					<Box sx={sx.rightControl}>
+						<Button
+							variant='text'
+							color={BTN_COLOR}
+							sx={sx.stepBtn}
+							startIcon={<PrevSm />}
+							onClick={handlePrev}
+						>
+							Előző
+						</Button>
+						{anchorDate &&	<Typography sx={sx.date}>{displayMonth(anchorDate)}</Typography>}
+						<Button
+							variant='text'
+							color={BTN_COLOR}
+							sx={sx.stepBtn}
+							endIcon={<NextSm color={palette.text.primaryDark} />}
+							onClick={handleNext}
+						>
+							Következő
+						</Button>
+					</Box>
 				</Box>
 				<TimetableComponent
 					firstColWidth={71}

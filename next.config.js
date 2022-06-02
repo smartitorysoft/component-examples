@@ -18,5 +18,14 @@ module.exports = {
 			aggregateTimeout: 300
 		};
 		return config;
+	},
+	async redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/timetable',
+				permanent: false
+			}
+		];
 	}
 };

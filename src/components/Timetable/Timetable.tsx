@@ -160,10 +160,7 @@ const Timetable = forwardRef(({
 				if (a.category.order < b.category.order) {
 					return -1;
 				}
-				if (a.category.order > b.category.order) {
-					return 1;
-				}
-				return 0;
+				return a.category.order > b.category.order ? 1 : 0;
 			}
 			return 0;
 		};

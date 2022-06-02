@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Typography } from '@mui/material';
+import { Box, SxProps, Typography } from '@mui/material';
 
 const BORDER_RADIUS = '14px';
 
@@ -43,13 +43,13 @@ interface Props {
 	data: Data,
 	withStart: boolean,
 	withEnd: boolean,
-	onClick: any,
+	onClick: (e: MouseEvent<HTMLDivElement>) => void,
 }
 
 const DetailedItem = ({
 	data, withStart, withEnd, onClick,
 }: Props) => {
-	const getRootStyles = (): any => {
+	const getRootStyles = (): SxProps => {
 		let s: any = sx.root;
 		if (withStart) {
 			s = {
